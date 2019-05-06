@@ -1,0 +1,230 @@
+{
+    "dtype_float_theano": "'float32'", 
+    "start_epoch": 5, 
+    "earlyStop_method": "valid_err", 
+    "dtype_float_numpy": "np.float32", 
+    "reverseDecoder": false, 
+    "sortByLength": true, 
+    "featList": [
+        "pos_map", 
+        "inArc_map", 
+        "outArc", 
+        "depth_d"
+    ], 
+    "OriginalTestSet": "test", 
+    "primary_dir": "../../dataset/", 
+    "LVT_aviliable": true, 
+    "save": true, 
+    "testNewSet": "test3", 
+    "reload_options": "options_check2_best.json", 
+    "Attention_aviliable": true, 
+    "apply_bigram_trick": false, 
+    "LearningRate": 0.0001, 
+    "reload_model": "model_check2_best.npz", 
+    "batchShuffle": true, 
+    "inArc_map_num": 40, 
+    "inArc_map_init_method": "random", 
+    "Coverage_aviliable": true, 
+    "sample_path": "./sample/", 
+    "vocab_freq_sortedBy": "output", 
+    "reload": true, 
+    "dataset_loading_method": "load", 
+    "SaveEachEpoch": true, 
+    "earlyStop_bound": 62000, 
+    "validNewSet": "valid3", 
+    "pos_map_dim": 16, 
+    "max_len": 51, 
+    "batch_count": null, 
+    "depth_c_dim": 16, 
+    "vocab_emb_dim": 100, 
+    "bestScore": null, 
+    "lRate": null, 
+    "depth_d_init_method": "random", 
+    "pos_map_num": 72, 
+    "earlyStop": true, 
+    "batch_size": 64, 
+    "sampleFreq": 2000, 
+    "rate_bound": 24000, 
+    "generation_method": "bfs_beam", 
+    "beam_size": 5, 
+    "model_path": "./model/", 
+    "embedding": {
+        "vocab": {
+            "dim": 100, 
+            "initial": "glove", 
+            "trainable": true
+        }, 
+        "position": {
+            "_rel": {
+                "n_in": 10, 
+                "init_method": "clock", 
+                "calc_method": "embedding", 
+                "n_out": 16, 
+                "threshold": 10000
+            }, 
+            "type": "both", 
+            "_abs": {
+                "n_in": 100, 
+                "init_method": "clock", 
+                "n_out": 16, 
+                "threshold": 10000
+            }
+        }, 
+        "struct": {
+            "trainable": true, 
+            "_3": {
+                "dim": 16
+            }, 
+            "_2": {
+                "dim": 16
+            }, 
+            "_1": {
+                "dim": 16
+            }, 
+            "_0": {
+                "dim": 16
+            }, 
+            "num": 4
+        }
+    }, 
+    "gamma": 100.0, 
+    "depth_c_init_method": "random", 
+    "pos_map_init_method": "random", 
+    "Structure_aviliable": true, 
+    "depth_d_dim": 16, 
+    "dtype_int_numpy": "np.int64", 
+    "weight_lambda": 1.0, 
+    "weight_L2": 1e-06, 
+    "encoder": {
+        "type": "stacked", 
+        "encoder_0": {
+            "n_in": 100, 
+            "type": "bi_lstm", 
+            "n_out": 256
+        }, 
+        "encoder_1": {
+            "n_in": 512, 
+            "type": "bi_lstm", 
+            "n_out": 256
+        }, 
+        "n_layer": 2
+    }, 
+    "decoder": {
+        "_tanh": {
+            "n_in": 768, 
+            "activation": "tanh", 
+            "type": "feedforward", 
+            "n_out": 256
+        }, 
+        "_switcher": {
+            "n_in": 868, 
+            "activation": "sigmoid", 
+            "type": "feedforward", 
+            "n_out": 1
+        }, 
+        "_softmax": {
+            "n_in": 256, 
+            "activation": "softmax", 
+            "type": "feedforward", 
+            "n_out": 5000
+        }, 
+        "_lstm": {
+            "n_in": 100, 
+            "type": "lstm", 
+            "n_out": 256
+        }, 
+        "type": "struct_node_decoder", 
+        "_att_2": {
+            "n_d": 256, 
+            "n_e": 196, 
+            "n_att": 256, 
+            "type": "attention", 
+            "_softmax": {
+                "activation": "softmax", 
+                "type": "activation"
+            }
+        }, 
+        "_att_1": {
+            "n_d": 256, 
+            "n_e": 512, 
+            "n_att": 256, 
+            "type": "attention", 
+            "_softmax": {
+                "activation": "softmax", 
+                "type": "activation"
+            }
+        }
+    }, 
+    "outArc_dim": 16, 
+    "datasetName": "gigaword_eng_5", 
+    "subsets": [
+        "trainSet", 
+        "validSet", 
+        "validNewSet", 
+        "testSet", 
+        "testNewSet", 
+        "testValidSet"
+    ], 
+    "dtype_int_theano": "'int64'", 
+    "outArc_num": 60, 
+    "trainSet": "train", 
+    "vocab_size": 71224, 
+    "vocab_output_size": 70020, 
+    "sample": true, 
+    "max_epochs": 30, 
+    "validSet": "valid2", 
+    "inArc_map_dim": 16, 
+    "vocab_emb_init_path": "../../vocab/glove.6B.100d.txt", 
+    "depth_d_num": 20, 
+    "outArc_init_method": "random", 
+    "vocab_cased": false, 
+    "rate_count": null, 
+    "testSet": "test2", 
+    "optimizer": "adam", 
+    "Parent_aviliable": false, 
+    "vocab_full_size": 71224, 
+    "vocab_minFreq": 5, 
+    "metrics": {
+        "Bleu": {
+            "stats": [
+                "f", 
+                "p", 
+                "r"
+            ], 
+            "options": [
+                "bleu-1", 
+                "bleu-2", 
+                "bleu-3", 
+                "bleu-4"
+            ]
+        }, 
+        "Rouge": {
+            "rouge_hyp_dir": "./evaluation/rouge_hyp/", 
+            "stats": [
+                "f", 
+                "p", 
+                "r"
+            ], 
+            "options": [
+                "rouge-1", 
+                "rouge-2", 
+                "rouge-l"
+            ], 
+            "rouge_ref_dir": "./evaluation/rouge_ref/"
+        }
+    }, 
+    "max_posi": 101, 
+    "depth_c_num": 47, 
+    "testValidSet": "testValid", 
+    "enc2dec": {
+        "n_in": 512, 
+        "activation": "tanh", 
+        "type": "feedforward", 
+        "method": "mean", 
+        "n_out": 256
+    }, 
+    "sampleMin": 10000, 
+    "vocab_input_size": 69236, 
+    "dataset_saving_address": "../../dataset/gigaword_eng_5/dataset.pkl", 
+    "model_name": "struct_node"
+}
