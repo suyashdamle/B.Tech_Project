@@ -1,0 +1,2 @@
+export DATA=../
+python decode_full_model.py --path=suyash_op --model_dir=../pretrained/new --beam=1 --test --no-cuda
