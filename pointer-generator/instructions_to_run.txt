@@ -1,0 +1,1 @@
+python run_summarization.py --mode=decode --data_path=test_000.bin --vocab_path=vocab_2 --log_root=pretrained_model_tf1.2.1 --exp_name=./ > out.txt
